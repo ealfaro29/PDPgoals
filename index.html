@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goal Flight Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section id="setupScreen" class="setup-screen">
+    <div class="setup-card">
+      <p class="eyebrow">Goal Flight Deck</p>
+      <h1>Create Your 2026 Operating Plan</h1>
+      <p class="subtitle">Build a sharper dashboard for your goals, milestones, and execution rhythm.</p>
+      <div class="header-actions">
+        <button id="setupImportBtn" class="ghost-btn" type="button">Import Existing Plan</button>
+      </div>
+
+      <form id="setupForm" class="setup-form">
+        <div class="form-grid">
+          <label>
+            Name
+            <input id="nameInput" type="text" required placeholder="Your name" />
+          </label>
+          <label>
+            Role
+            <input id="roleInput" type="text" required placeholder="Your role" />
+          </label>
+          <label>
+            Work Model (optional)
+            <input id="scheduleInput" type="text" placeholder="e.g. Full-Time, 60% Part-Time" />
+          </label>
+          <label>
+            Overview
+            <textarea id="overviewInput" required placeholder="Short summary of your yearly focus"></textarea>
+          </label>
+          <label>
+            Theme / North Star
+            <input id="themeInput" type="text" required placeholder="e.g. Build momentum with visible wins" />
+          </label>
+          <label>
+            Success Metric
+            <input id="northStarInput" type="text" required placeholder="e.g. 3 strategic launches completed" />
+          </label>
+        </div>
+
+        <h3>Execution Arc</h3>
+        <div class="form-grid timeline-form">
+          <label>
+            Q1 - Setup
+            <textarea id="q1Input" required placeholder="Q1 priorities"></textarea>
+          </label>
+          <label>
+            Mid-Year Check
+            <textarea id="midYearInput" required placeholder="Mid-year check focus"></textarea>
+          </label>
+          <label>
+            Q3 - Execution
+            <textarea id="q3Input" required placeholder="Q3 execution priorities"></textarea>
+          </label>
+          <label>
+            Q4 - Consolidation
+            <textarea id="q4Input" required placeholder="Q4 consolidation priorities"></textarea>
+          </label>
+        </div>
+
+        <h3>Initial Goal Stack</h3>
+        <div class="form-grid">
+          <label>
+            Main Goal Title
+            <input id="mainGoalTitleInput" type="text" required placeholder="Main goal name" />
+          </label>
+          <label>
+            Main Goal Objective
+            <textarea id="mainGoalObjectiveInput" required placeholder="Objective for your main goal"></textarea>
+          </label>
+          <label>
+            Secondary Goal Title
+            <input id="secondaryGoalTitleInput" type="text" required placeholder="Secondary goal name" />
+          </label>
+          <label>
+            Secondary Goal Objective
+            <textarea id="secondaryGoalObjectiveInput" required placeholder="Objective for your secondary goal"></textarea>
+          </label>
+        </div>
+
+        <button type="submit" class="primary-btn">Create My Tracker</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell hidden">
+    <header class="app-header">
+      <div class="header-copy">
+        <p class="eyebrow">2026 Goal Flight Deck</p>
+        <h1 id="planTitle">Goal Manager</h1>
+        <p id="planSubtitle" class="subtitle"></p>
+      </div>
+      <div class="header-actions">
+        <button id="exportBtn" class="ghost-btn" type="button">Export Plan</button>
+        <button id="importBtn" class="ghost-btn" type="button">Import Plan</button>
+        <button id="resetBtn" class="ghost-btn" type="button">Reset Plan</button>
+      </div>
+    </header>
+
+    <nav class="tabs" id="tabs"></nav>
+
+    <main class="tab-panels">
+      <section id="tab-intro" class="tab-panel active"></section>
+      <section id="tab-main-1" class="tab-panel"></section>
+      <section id="tab-secondary" class="tab-panel"></section>
+      <section id="tab-notes" class="tab-panel"></section>
+    </main>
+  </div>
+
+  <input id="importFileInput" type="file" accept="application/json" class="hidden-input" />
+  <script src="app.js"></script>
+</body>
+</html>

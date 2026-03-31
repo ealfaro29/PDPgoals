@@ -1,0 +1,264 @@
+{
+  "version": 2,
+  "meta": {
+    "name": "Esteban Alfaro",
+    "role": "Senior Business Presentation Designer (SBPD)",
+    "schedule": "60% Part-Time",
+    "theme": "Specialization, Strategic Advisory, and Scalable Innovation",
+    "northStar": "Deliver high-impact, low-volume work through tools, advisory support, and reusable knowledge assets",
+    "createdAt": "2026-01-06T09:00:00.000Z",
+    "updatedAt": "2026-03-30T09:00:00.000Z"
+  },
+  "intro": {
+    "overview": "This 2026 development plan is built to consolidate my position as a Senior Business Presentation Designer while adapting to a 60% part-time schedule. The focus is on high-leverage work: building scalable tools and documentation, shifting from production-heavy support to strategic advisory, and creating systems that keep delivering value even when I am offline."
+  },
+  "timeline": {
+    "q1": "Define what sustainable 60% output looks like with leadership, scope the next two VGTools mini-apps, enroll in advanced data visualization training, and set up a living Miro board for impact documentation with the strongest 2025 cases.",
+    "midYear": "Use the calibration check-in to confirm workload sustainability, review whether secondary goals need trimming, validate that a new VGTools prototype exists, and convert recurring Affinity guidance into a documented learning asset.",
+    "q3": "Act as a regular attendee on primary client study calls, practice proactive capacity blocking, launch new VGTools updates, and roll out a formal Affinity or design training module with a recorded launch session.",
+    "q4": "Apply Blender-based 3D work to at least one flagship client presentation and use the impact documentation board to assemble a rich, example-driven self-evaluation with visuals and collected feedback."
+  },
+  "mainGoals": [
+    {
+      "id": "mg1",
+      "title": "Master Advanced Data Visualization and Expand VGTools",
+      "objective": "Become the go-to expert for complex data storytelling and release high-value productivity mini-apps that help the team repeatedly, not just once.",
+      "actionItems": [
+        {
+          "id": "mg1_1",
+          "text": "Define the next two VGTools mini-app opportunities and document the team problems they solve",
+          "status": "in_progress",
+          "priority": "high",
+          "dueDate": "2026-04-10",
+          "createdAt": "2026-01-08T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "mg1_2",
+          "text": "Enroll in an advanced data visualization course focused on editorial and journalistic storytelling",
+          "status": "done",
+          "priority": "high",
+          "dueDate": "2026-02-01",
+          "createdAt": "2026-01-10T09:00:00.000Z",
+          "updatedAt": "2026-02-01T09:00:00.000Z"
+        },
+        {
+          "id": "mg1_3",
+          "text": "Develop a working prototype for one new VGTools mini-app",
+          "status": "in_progress",
+          "priority": "high",
+          "dueDate": "2026-05-15",
+          "createdAt": "2026-02-05T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "mg1_4",
+          "text": "Release VGTools updates or mini-apps to the team with clear usage guidance",
+          "status": "not_started",
+          "priority": "high",
+          "dueDate": "2026-08-15",
+          "createdAt": "2026-02-10T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "mg1_5",
+          "text": "Build a reference set of advanced chart examples to strengthen complex data storytelling work",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-06-20",
+          "createdAt": "2026-02-12T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        }
+      ],
+      "evidence": []
+    }
+  ],
+  "secondaryGoals": [
+    {
+      "id": "sg1",
+      "title": "Shift to Strategic Partner Communication",
+      "objective": "Become a higher-value advisory partner by joining the right conversations early, estimating effort transparently, and protecting capacity through proactive scope management.",
+      "actionItems": [
+        {
+          "id": "sg1_1",
+          "text": "Align with the Team Leader on what sustainable 60% output should look like for an SBPD",
+          "status": "in_progress",
+          "priority": "high",
+          "dueDate": "2026-04-05",
+          "createdAt": "2026-01-05T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg1_2",
+          "text": "Define and test a communication protocol for effort estimation, status updates, and green-light approvals",
+          "status": "not_started",
+          "priority": "high",
+          "dueDate": "2026-04-30",
+          "createdAt": "2026-01-12T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg1_3",
+          "text": "Join problem-solving or CST calls for one to two key studies to better understand project spirit and reduce rework",
+          "status": "not_started",
+          "priority": "high",
+          "dueDate": "2026-06-15",
+          "createdAt": "2026-01-15T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg1_4",
+          "text": "Practice proactive blocking when requests exceed part-time capacity",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-08-01",
+          "createdAt": "2026-02-01T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "sg2",
+      "title": "Formalize Knowledge Sharing and Mentorship",
+      "objective": "Turn ad-hoc mentoring into reusable learning assets that scale my expertise across the team even when I am offline.",
+      "actionItems": [
+        {
+          "id": "sg2_1",
+          "text": "Convert recurring Affinity Squad and Buddy System guidance into a documented guide or learning path",
+          "status": "in_progress",
+          "priority": "high",
+          "dueDate": "2026-05-20",
+          "createdAt": "2026-01-18T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg2_2",
+          "text": "Build a self-service training module for Affinity or VGTools that can plug into the LMS grid",
+          "status": "not_started",
+          "priority": "high",
+          "dueDate": "2026-07-10",
+          "createdAt": "2026-02-04T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg2_3",
+          "text": "Host one Launch and Learn session and direct future requests to the recording and documentation",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-08-20",
+          "createdAt": "2026-02-18T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "sg3",
+      "title": "Operationalize Impact Documentation",
+      "objective": "Maintain a live, sanitized record of high-impact work so review preparation becomes a lightweight synthesis instead of a scramble.",
+      "actionItems": [
+        {
+          "id": "sg3_1",
+          "text": "Create a dedicated Miro board for impact documentation",
+          "status": "done",
+          "priority": "high",
+          "dueDate": "2026-01-31",
+          "createdAt": "2026-01-07T09:00:00.000Z",
+          "updatedAt": "2026-01-31T09:00:00.000Z"
+        },
+        {
+          "id": "sg3_2",
+          "text": "Upload the strongest 2025 cases and begin adding new 2026 success stories immediately after delivery",
+          "status": "in_progress",
+          "priority": "high",
+          "dueDate": "2026-04-20",
+          "createdAt": "2026-01-20T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg3_3",
+          "text": "Prepare a draft impact summary for the April or May calibration check-in",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-05-05",
+          "createdAt": "2026-02-02T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg3_4",
+          "text": "Use the Miro board to assemble a rich self-evaluation with examples, visuals, and feedback quotes",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-10-15",
+          "createdAt": "2026-02-14T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "sg4",
+      "title": "Blender 3D Integration",
+      "objective": "Develop Blender as a distinctive capability for immersive backgrounds and 3D visual assets that elevate presentation work.",
+      "actionItems": [
+        {
+          "id": "sg4_1",
+          "text": "Complete one structured Blender course such as Blender Guru",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-06-30",
+          "createdAt": "2026-01-25T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg4_2",
+          "text": "Produce three reusable 3D assets or environments for future client work",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-09-01",
+          "createdAt": "2026-02-06T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg4_3",
+          "text": "Use Blender-driven 3D work in one high-profile year-end client presentation",
+          "status": "not_started",
+          "priority": "high",
+          "dueDate": "2026-11-20",
+          "createdAt": "2026-02-16T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "sg5",
+      "title": "Continuous Feedback Loop",
+      "objective": "Collect timely project-level feedback so performance signals stay current and tied to the work that matters most.",
+      "actionItems": [
+        {
+          "id": "sg5_1",
+          "text": "Request FeedbackNow input immediately after each high-stakes project closes",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-04-30",
+          "createdAt": "2026-01-28T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        },
+        {
+          "id": "sg5_2",
+          "text": "Track recurring themes from feedback and feed them into the impact documentation board",
+          "status": "not_started",
+          "priority": "medium",
+          "dueDate": "2026-07-31",
+          "createdAt": "2026-02-08T09:00:00.000Z",
+          "updatedAt": "2026-03-30T09:00:00.000Z"
+        }
+      ],
+      "evidence": []
+    }
+  ],
+  "notes": "Summary of adjustments for the 60% schedule:\n\n1. Asynchronous mentorship over repeated live coaching. The intent is to build guides, recordings, and self-service materials that continue helping the team without requiring my real-time availability.\n\n2. Tool-based impact over volume-based output. The strongest return comes from VGTools and other mini-apps that compound value while I am offline.\n\n3. Strategic communication as a protective operating model. Clear effort estimates, explicit green lights, and proactive blocking are essential to prevent last-minute requests from spilling into non-working days.\n\n4. Focus weeks and service weeks should remain visible in planning so learning, tool building, and client support do not compete every single week.\n\nMid-cycle checkpoint questions:\n- Is the 60% schedule sustainable without overtime?\n- Is there already a working VGTools prototype?\n- Have I turned Affinity guidance into a reusable resource?\n- Do secondary goals need scope reduction?\n",
+  "noteEvidence": []
+}
