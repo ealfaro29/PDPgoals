@@ -2,6 +2,7 @@ const STORAGE_KEY = "goal_manager_template_v2";
 const LEGACY_STORAGE_KEY = "goal_manager_template_v1";
 const ACTIVE_TAB_KEY = `${STORAGE_KEY}_active_tab`;
 const TOAST_DURATION_MS = 2200;
+const AUTO_IMPORT_FILE = "esteban-2026-goal-flight-deck.json";
 
 const STATUS_COLUMNS = [
   { key: "not_started", label: "Not Started" },
@@ -15,11 +16,30 @@ const PRIORITY_OPTIONS = [
   { key: "low", label: "Low" }
 ];
 
+/* ── SVG Icon System ── */
+const ICONS = {
+  rocket: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>',
+  target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  layers: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/></svg>',
+  clipboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  circle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>',
+  zap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+  download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>',
+  upload: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>',
+  trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>',
+};
+
+function icon(name, cls = '') {
+  return `<span class="icon ${cls}" aria-hidden="true">${ICONS[name] || ''}</span>`;
+}
+
 const tabConfig = [
-  { id: "intro", label: "Mission Control" },
-  { id: "main-1", label: "Main Goal" },
-  { id: "secondary", label: "Secondary Goals" },
-  { id: "notes", label: "Logs & Evidence" }
+  { id: "intro", label: "Mission Control", icon: "rocket" },
+  { id: "main-1", label: "Main Goal", icon: "target" },
+  { id: "secondary", label: "Secondary Goals", icon: "layers" },
+  { id: "notes", label: "Logs & Evidence", icon: "clipboard" }
 ];
 
 const setupScreen = document.getElementById("setupScreen");
@@ -35,13 +55,20 @@ let activeEvidenceContext = null;
 
 init();
 
-function init() {
+async function init() {
   ensureToastHost();
   ensureTaskContextMenu();
   ensureEvidenceLightbox();
   bindSetupForm();
   bindHeaderActions();
   bindGlobalUiDismissals();
+
+  const autoLoaded = await tryAutoImport();
+  if (autoLoaded) {
+    state = autoLoaded;
+    persistState();
+    activeTab = loadActiveTab();
+  }
 
   if (!state) {
     showSetup();
@@ -53,6 +80,28 @@ function init() {
   renderTabs();
   activateTab(activeTab, { save: false });
   renderAll();
+}
+
+async function tryAutoImport() {
+  return new Promise((resolve) => {
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", AUTO_IMPORT_FILE, true);
+      xhr.responseType = "json";
+      xhr.onload = () => {
+        if (xhr.status === 0 || xhr.status === 200) {
+          const migrated = migrateState(xhr.response);
+          resolve(migrated || null);
+        } else {
+          resolve(null);
+        }
+      };
+      xhr.onerror = () => resolve(null);
+      xhr.send();
+    } catch {
+      resolve(null);
+    }
+  });
 }
 
 function bindSetupForm() {
@@ -228,7 +277,7 @@ function renderTabs() {
     btn.className = `tab-btn ${tab.id === activeTab ? "active" : ""}`;
     btn.dataset.tab = tab.id;
     btn.type = "button";
-    btn.textContent = tab.label;
+    btn.innerHTML = `${tab.icon ? icon(tab.icon) : ''}${tab.label}`;
     btn.addEventListener("click", () => activateTab(tab.id));
     tabsEl.appendChild(btn);
   });
@@ -263,9 +312,9 @@ function renderIntro() {
   const totalEvidence = allGoals.reduce((total, goal) => total + goal.evidence.length, 0) + state.noteEvidence.length;
 
   panel.innerHTML = `
-    <div class="dashboard-grid dashboard-grid-wide">
+    <div class="dashboard-grid dashboard-grid-wide stagger-in">
       <article class="card hero-card">
-        <p class="eyebrow">Mission Control</p>
+        <p class="eyebrow">${icon('rocket')} Mission Control</p>
         <h2>${escapeHtml(state.meta.theme)}</h2>
         <p>${escapeHtml(state.intro.overview)}</p>
         <div class="mission-metrics">
@@ -299,7 +348,7 @@ function renderIntro() {
       </article>
     </div>
 
-    <div class="dashboard-grid">
+    <div class="dashboard-grid stagger-in">
       <article class="card">
         <h3>Focus Radar</h3>
         ${focusGoals.length ? `
@@ -329,7 +378,7 @@ function renderIntro() {
       </article>
     </div>
 
-    <div class="dashboard-grid">
+    <div class="dashboard-grid stagger-in">
       <article class="card">
         <h3>In Motion</h3>
         ${allItems.filter((item) => item.status === "in_progress").length ? `
@@ -583,10 +632,11 @@ function buildKanban(items, key) {
 
 function buildKanbanColumn(items, column, key) {
   const columnItems = items.filter((item) => item.status === column.key);
+  const colIcon = column.key === 'done' ? icon('check') : column.key === 'in_progress' ? icon('clock') : icon('circle');
   return `
     <article class="kanban-column" data-column-status="${column.key}" data-board-column="${key}">
       <div class="column-head">
-        <strong>${column.label}</strong>
+        <strong>${colIcon} ${column.label}</strong>
         <span class="column-badge">${columnItems.length}</span>
       </div>
       <div class="task-list">
